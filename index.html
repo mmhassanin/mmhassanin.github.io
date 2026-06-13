@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalyst Technologies — Coming Soon</title>
+<meta name="description" content="Catalyst Technologies designs and fine-tunes Shopify storefronts for ambitious brands across the Gulf. New site coming soon.">
+
+<!-- Open Graph (nice link previews on Facebook / WhatsApp) -->
+<meta property="og:title" content="Catalyst Technologies — Coming Soon">
+<meta property="og:description" content="Shopify storefronts, built and fine-tuned for brands across the Gulf.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#08080c;
+    --text:#f4f1ec;
+    --muted:#8c8b97;
+    --line:rgba(255,255,255,.09);
+    --violet:#7b61ff;
+    --coral:#ff6b4a;
+    --display:'Bricolage Grotesque',sans-serif;
+    --body:'Hanken Grotesk',sans-serif;
+    --mono:'JetBrains Mono',monospace;
+    --ar:'IBM Plex Sans Arabic',sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  html,body{height:100%}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    -webkit-font-smoothing:antialiased;
+    overflow:hidden;
+    position:relative;
+  }
+
+  /* ── Catalyst glow: two drifting orbs that read like a slow reaction ── */
+  .orb{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:.55;
+    z-index:0;
+    pointer-events:none;
+  }
+  .orb--violet{
+    width:46vw;height:46vw;
+    top:-12vh;left:-8vw;
+    background:radial-gradient(circle at center,var(--violet),transparent 70%);
+    animation:drift-a 22s ease-in-out infinite;
+  }
+  .orb--coral{
+    width:42vw;height:42vw;
+    bottom:-14vh;right:-6vw;
+    background:radial-gradient(circle at center,var(--coral),transparent 70%);
+    animation:drift-b 26s ease-in-out infinite;
+  }
+
+  @keyframes drift-a{
+    0%,100%{transform:translate(0,0) scale(1)}
+    50%{transform:translate(8vw,6vh) scale(1.12)}
+  }
+  @keyframes drift-b{
+    0%,100%{transform:translate(0,0) scale(1.05)}
+    50%{transform:translate(-7vw,-5vh) scale(.92)}
+  }
+
+  /* ── Grain overlay: kills the over-smooth, AI-gradient feel ── */
+  .grain{
+    position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ── Layout frame ── */
+  .frame{
+    position:relative;z-index:2;
+    height:100%;
+    display:grid;
+    grid-template-rows:auto 1fr auto;
+    padding:clamp(1.5rem,4vw,3rem);
+    max-width:1100px;margin:0 auto;
+  }
+
+  /* Header / wordmark */
+  .wordmark{
+    display:flex;align-items:center;gap:.6rem;
+    font-family:var(--display);font-weight:700;
+    font-size:1.05rem;letter-spacing:-.01em;
+  }
+  .wordmark .spark{
+    width:9px;height:9px;border-radius:50%;
+    background:linear-gradient(135deg,var(--violet),var(--coral));
+    box-shadow:0 0 14px 2px rgba(123,97,255,.7);
+  }
+
+  /* Main */
+  main{
+    align-self:center;
+    max-width:620px;
+  }
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:.6rem;
+    font-family:var(--mono);font-size:.72rem;font-weight:500;
+    letter-spacing:.18em;text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:1.8rem;
+  }
+  .eyebrow .dot{
+    width:7px;height:7px;border-radius:50%;background:var(--coral);
+    box-shadow:0 0 0 0 rgba(255,107,74,.6);
+    animation:pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(255,107,74,.55)}
+    70%{box-shadow:0 0 0 9px rgba(255,107,74,0)}
+    100%{box-shadow:0 0 0 0 rgba(255,107,74,0)}
+  }
+
+  h1{
+    font-family:var(--display);
+    font-weight:800;
+    font-size:clamp(3rem,9vw,5.4rem);
+    line-height:.97;
+    letter-spacing:-.03em;
+    margin-bottom:1.4rem;
+  }
+
+  .lede{
+    font-size:clamp(1rem,2.4vw,1.2rem);
+    line-height:1.6;
+    color:var(--muted);
+    max-width:46ch;
+    margin-bottom:1rem;
+  }
+
+  .ar{
+    font-family:var(--ar);direction:rtl;
+    font-size:1rem;color:var(--muted);
+    opacity:.85;margin-bottom:2.6rem;
+  }
+
+  /* Notify form */
+  .notify{
+    display:flex;gap:.6rem;flex-wrap:wrap;
+    max-width:460px;
+  }
+  .notify input{
+    flex:1 1 220px;
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--line);
+    border-radius:12px;
+    color:var(--text);
+    font-family:var(--body);font-size:.95rem;
+    padding:.85rem 1.1rem;
+    backdrop-filter:blur(10px);
+    transition:border-color .2s ease,background .2s ease;
+  }
+  .notify input::placeholder{color:#6a6a76}
+  .notify input:focus{
+    outline:none;
+    border-color:rgba(123,97,255,.6);
+    background:rgba(255,255,255,.06);
+  }
+  .notify button{
+    background:var(--text);
+    color:#0a0a0e;
+    border:none;border-radius:12px;
+    font-family:var(--body);font-weight:500;font-size:.95rem;
+    padding:.85rem 1.5rem;cursor:pointer;
+    transition:transform .18s ease,box-shadow .18s ease;
+  }
+  .notify button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px -8px rgba(255,255,255,.25);
+  }
+  .notify button:active{transform:translateY(0)}
+
+  .success{
+    font-size:.95rem;color:var(--text);
+    display:flex;align-items:center;gap:.55rem;
+    max-width:460px;
+  }
+  .success .check{color:var(--coral);font-weight:700}
+
+  /* Footer */
+  footer{
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:1rem;
+    font-family:var(--mono);font-size:.72rem;
+    color:var(--muted);letter-spacing:.04em;
+  }
+  footer nav{display:flex;gap:1.4rem}
+  footer a{
+    color:var(--muted);text-decoration:none;
+    transition:color .2s ease;
+  }
+  footer a:hover{color:var(--text)}
+
+  /* Entrance animation */
+  .reveal{opacity:0;transform:translateY(14px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+  .d1{animation-delay:.1s}.d2{animation-delay:.22s}.d3{animation-delay:.34s}
+  .d4{animation-delay:.46s}.d5{animation-delay:.58s}.d6{animation-delay:.7s}
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+
+  :focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:4px}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+  <div class="orb orb--violet"></div>
+  <div class="orb orb--coral"></div>
+  <div class="grain"></div>
+
+  <div class="frame">
+    <header class="wordmark reveal d1">
+      <span class="spark" aria-hidden="true"></span>
+      Catalyst
+    </header>
+
+    <main>
+      <span class="eyebrow reveal d2">
+        <span class="dot" aria-hidden="true"></span>
+        In development · Cairo, EG
+      </span>
+
+      <h1 class="reveal d3">Setting<br>up shop.</h1>
+
+      <p class="lede reveal d4">
+        Catalyst Technologies designs and fine-tunes Shopify storefronts for
+        ambitious brands across the Gulf. The new site is almost ready.
+      </p>
+
+      <p class="ar reveal d4">تجارةٌ إلكترونية تُصنع بإتقان.</p>
+
+      <form class="notify reveal d5" id="notifyForm" novalidate>
+        <input type="email" id="email" placeholder="you@brand.com" aria-label="Email address" required>
+        <button type="submit">Notify me</button>
+      </form>
+    </main>
+
+    <footer class="reveal d6">
+      <span>© 2026 Catalyst Technologies</span>
+      <nav>
+        <a href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a>
+        <a href="mailto:hello@catalyst.com">Email</a>
+        <a href="https://wa.me/20" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script>
+    const form = document.getElementById('notifyForm');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('email');
+      const value = email.value.trim();
+      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      if (!valid) {
+        email.focus();
+        email.style.borderColor = '#ff6b4a';
+        return;
+      }
+      const msg = document.createElement('p');
+      msg.className = 'success';
+      msg.innerHTML = '<span class="check">✓</span> You\'re on the list — we\'ll be in touch when we launch.';
+      form.replaceWith(msg);
+    });
+  </script>
+</body>
+</html>
